@@ -11,7 +11,6 @@ app = Flask(__name__)
 def check_signature(data, signature_received):
     data = request.data
     key = environ['GITHUB_WEBHOOK_KEY']
-    print('Using key={}'.format(key))
     key_bytes = bytes(key, 'UTF-8')
     hashed = hmac.new(key_bytes, data, sha1)
     signature_expected = str(binascii.hexlify(hashed.digest()), 'UTF-8')
