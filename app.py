@@ -42,6 +42,8 @@ def hook():
     event = request.headers['x-github-event']
     if event == 'push':
         process_push_event(request.get_json())
+    elif event == 'ping':
+        pass
     else:
         print('Unsupported event, ignoring request')
         abort(400)
