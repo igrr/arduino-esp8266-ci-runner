@@ -24,8 +24,10 @@ def start_ci(repo_url, commit_id):
 
 def process_push_event(event):
     if not event['created']:
+        print('Ignoring !created event')
         return
     if event['ref'] != 'refs/heads/master':
+        print('Ignoring push to branch other than master')
         return
     repo_url = event['repository']['clone_url']
     commit_id = event['after']
