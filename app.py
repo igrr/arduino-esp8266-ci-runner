@@ -10,7 +10,7 @@ import requests
 app = Flask(__name__)
 
 
-ALLOWED_ROLES = ['OWNER', 'COLLABORATOR']
+ALLOWED_ROLES = ['OWNER', 'MEMBER', 'COLLABORATOR']
 
 TEST_COMMAND = '#hwtest'
 
