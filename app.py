@@ -63,6 +63,9 @@ def process_comment_event(event):
     if event['issue']['state'] != 'open':
         print('ignoring comment on a closed PR')
         return
+    if event['action'] != 'created':
+        print('ignoring deletions/modifications of comments')
+        return
     author_association = event['comment']['author_association']
     if author_association not in ALLOWED_ROLES:
         print('only owners and collaborators can start CI')
